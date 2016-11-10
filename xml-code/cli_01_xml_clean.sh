@@ -74,20 +74,12 @@ push_with_hdfs_script() {
 
         # imprimimos el comando que estamos ejecutando
 	cd $path_x
-        for i in $(ls *.tar.gz);
+        for i in $(ls *.xml);
         do
           echo $i
-          zcat $i sed 's/xmlns="[^>]*"//g' | tar xvf - --strip=4
+          cat $i | sed 's/xmlns="[^>]*"//g' | hadoop fs -copyFromLocal - $path_l$i
         done
-
-	#imprimimos el comando que estamos ejecutando
-        for e in $(ls *.xml);
-        do
-          echo $e
-          hdfs dfs -put $e $path_l
-        done    
-        rm *.xml
-        exit
+	exit
 		
 }
 
