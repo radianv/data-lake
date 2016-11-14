@@ -69,7 +69,7 @@ TBLPROPERTIES (
 "xmlinput.end"="</feed>"
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medicationprescription(nombre_receta string, status_medicamento string, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad string, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>)
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medicationprescription(nombre_receta string, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>)
 ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
 WITH SERDEPROPERTIES (
 "column.xpath.nombre_receta"="//Composition/identifier[label[@value='UUID']]/value/@value",
@@ -160,7 +160,7 @@ TBLPROPERTIES (
 "xmlinput.end"="</feed>"
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medication(nombre_receta string, id_medicamento Array<string>, nombre_medicamento string)
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medication(nombre_receta string, id_medicamento Array<string>, nombre_medicamento Array<string>)
 ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
 WITH SERDEPROPERTIES (
 "column.xpath.nombre_receta"="//Composition/identifier[label[@value='UUID']]/value/@value",
@@ -177,7 +177,7 @@ TBLPROPERTIES (
 );
 
 
-CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_satelite(nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico string, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string)
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_satelite(nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string)
 ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
 WITH SERDEPROPERTIES (
 "column.xpath.nombre_receta"="//Composition/identifier[label[@value='UUID']]/value/@value",
@@ -239,7 +239,7 @@ COMMENT 'Tabla Condition'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
 
-CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medicationprescription(sid_md string, version_receta string, nombre_receta string, status_medicamento string, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad string, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, fec_ini string)
+CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medicationprescription(sid_md string, version_receta string, nombre_receta string, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, fec_ini string)
 COMMENT 'Tabla Medication Prescription'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
@@ -259,12 +259,12 @@ COMMENT 'Tabla Provenance'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
 
-CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medication(sid_md string, version_receta string, nombre_receta string, id_medicamento Array<string>, nombre_medicamento string, fec_ini string)
+CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medication(sid_md string, version_receta string, nombre_receta string, id_medicamento Array<string>, nombre_medicamento Array<string>, fec_ini string)
 COMMENT 'Tabla Medication'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
 
-CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_satelite(sid_md string, version_receta string, nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico string, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string, fec_ini string)
+CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_satelite(sid_md string, version_receta string, nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string, fec_ini string)
 COMMENT 'Tabla Satelite'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 

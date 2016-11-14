@@ -8,7 +8,7 @@ reflect('org.apache.commons.codec.digest.DigestUtils'
 ,'sha256Hex'
 ,a.nombre_receta) as sid_md
 ,regexp_extract(INPUT__FILE__NAME, '(V|v)(.*[1-9])',2) as version_receta
-,a.nombre_receta
+,regexp_extract(a.nombre_receta, 'urn:uuid:(.*)', 1) as nombre_receta
 ,a.fecha_expedicion
 ,a.estatus_comp
 ,a.id_receta_medica
