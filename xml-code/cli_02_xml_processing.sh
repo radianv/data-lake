@@ -10,7 +10,8 @@ usage() {
 			echo "      for info on each command: --> hive_scripts.sh command -h|--help"
 			echo "Commands:"
 			echo "      hive_scripts.sh push_with_hql_script [options]"
-			echo "      hive_scripts.sh create_schema_hql_script [options]"
+			echo "      hive_scripts.sh push_view_hql_script [options]"
+                        echo "      hive_scripts.sh create_schema_hql_script [options]"
 			echo ""
 			echo ""
 			;;
@@ -44,6 +45,20 @@ usage() {
 			echo "		./cli_02_xml_processing create_schema_hql_script -d a_schema_name -l a_location_path"
 			echo ""
 			;;
+		push_view_hql_script)
+			echo ""
+			echo "Usage: cli_02_xml_processing.sh push_view_hql_script [-h|--help]"
+			echo ""
+			echo "  This is a quick example of using a hql script with a bash script to push ETL Process:"
+			echo ""
+			echo "Params:"
+			echo "      -d|--database <database_name>"
+			echo "      -h|--help: print this help info and exit"
+			echo "Examples:"
+			echo ""
+			echo "		./cli_02_xml_processing push_view_hql_script -d a_schema_name"
+			echo ""
+			;;
 
 	esac
 	exit
@@ -56,6 +71,10 @@ args() {
         push_with_hql_script)
             shift
             push_with_hql_script $@
+            ;;
+        push_view_hql_script)
+            shift
+            push_view_hql_script $@
             ;;
        create_schema_hql_script)
             shift
@@ -162,6 +181,47 @@ push_with_hql_script() {
 
 	# imprimimos el comando que estamos ejecutando
 	hive_script="ETL02-LIT_$table.hql"
+	echo "hive -hiveconf MY_SCHEMA=$database -f $hive_script"
+	my_value=`hive -hiveconf MY_SCHEMA=$database -f $hive_script`
+	echo "returned value = $my_value"	
+	exit
+		
+}
+
+# función de para ejecutar el script que carga las tablas Incrementales 
+push_view_hql_script() {
+	# init params
+	database=""
+	table=""
+	begin_date=`date +%Y-%m-%d:%H:%M:%S`
+
+	# process args for this block
+	while test $# -gt 0
+	do
+    case $1 in
+            -d|--database)
+            	shift
+            	database=$1
+            	;;
+            -h|--help)
+            	usage push_view_hql_script
+            	;;
+        	*)
+            	echo >&2 "Invalid argument: $1"
+            	usage "push_view_hql_script"
+        	    ;;
+    	esac
+    	shift
+	done
+	
+	# validamos si alguna opcion nos esta faltando	
+	if [ x"$database" == "x" ]; then
+		echo "missing database name: -d|--database <database_name>"
+		usage "push_view_hql_script"
+	fi
+
+	# imprimimos el comando que estamos ejecutando
+	hive_script="ETL03-RVT_REPORTING.hql"
 	echo "hive -hiveconf MY_SCHEMA=$database -f $hive_script"
 	my_value=`hive -hiveconf MY_SCHEMA=$database -f $hive_script`
 	echo "returned value = $my_value"	

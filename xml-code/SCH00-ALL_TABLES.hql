@@ -268,3 +268,56 @@ CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_satelite(sid_md string, ver
 COMMENT 'Tabla Satelite'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
+DROP VIEW IF EXISTS ${hiveconf:MY_SCHEMA}.rvt_reporting;
+
+CREATE VIEW rvt_reporting AS
+SELECT s.* FROM
+(select a.nombre_receta
+,a.fecha_expedicion
+,a.id_receta_medica
+,a.estatus
+,b.id_medicamento
+,b.nombre_medicamento
+,c.status_medicamento
+,c.medicamento
+,c.surtimiento_cantidad
+,c.descripcion_medicamento
+,d.genero
+,d.fecha_nacimiento
+,d.nss
+,e.delegacion_desc
+,e.diagnostico
+,a.version_receta
+from
+${hiveconf:MY_SCHEMA}.iit_composition a
+JOIN (
+select sid_md
+,version_receta
+,myCol1 as id_medicamento
+,myCol2 as nombre_medicamento
+from ${hiveconf:MY_SCHEMA}.iit_medication
+LATERAL VIEW explode(id_medicamento) myTable1 AS myCol1
+LATERAL VIEW explode(nombre_medicamento) myTable2 AS myCol2) as b on a.sid_md=b.sid_md and a.version_receta=b.version_receta
+JOIN (
+select sid_md
+,version_receta
+,myCol1 as status_medicamento
+,myCol2 as medicamento
+,myCol3 surtimiento_cantidad
+,myCol4 as descripcion_medicamento
+from ${hiveconf:MY_SCHEMA}.iit_medicationprescription
+LATERAL VIEW explode(status_medicamento) myTable1 AS myCol1
+LATERAL VIEW explode(medicamento) myTable2 AS myCol2
+LATERAL VIEW explode(surtimiento_cantidad) myTable2 AS myCol3
+LATERAL VIEW explode(descripcion_medicamento) myTable2 AS myCol4) as c on a.sid_md=c.sid_md and a.version_receta=c.version_receta
+JOIN ${hiveconf:MY_SCHEMA}.iit_paciente d on a.sid_md=d.sid_md and a.version_receta=d.version_receta
+JOIN (
+select sid_md
+,version_receta
+,delegacion_desc
+,myCol1 as diagnostico
+from
+${hiveconf:MY_SCHEMA}.iit_satelite
+LATERAL VIEW explode(diagnostico) myTable1 AS myCol1) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta) s
+where s.version_receta = 1;
+
