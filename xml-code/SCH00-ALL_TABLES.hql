@@ -272,7 +272,9 @@ DROP VIEW IF EXISTS ${hiveconf:MY_SCHEMA}.rvt_reporting;
 
 CREATE VIEW rvt_reporting AS
 SELECT s.* FROM
-(select a.nombre_receta
+(select a.sid_md
+,a.version_receta
+,a.nombre_receta
 ,a.fecha_expedicion
 ,a.id_receta_medica
 ,a.estatus
@@ -287,9 +289,9 @@ SELECT s.* FROM
 ,d.nss
 ,e.delegacion_desc
 ,e.diagnostico
-,a.version_receta
-from
-${hiveconf:MY_SCHEMA}.iit_composition a
+,e.id_umf
+,f.fec_atencion
+from ${hiveconf:MY_SCHEMA}.iit_composition a
 JOIN (
 select sid_md
 ,version_receta
@@ -316,8 +318,8 @@ select sid_md
 ,version_receta
 ,delegacion_desc
 ,myCol1 as diagnostico
-from
-${hiveconf:MY_SCHEMA}.iit_satelite
-LATERAL VIEW explode(diagnostico) myTable1 AS myCol1) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta) s
+,id_umf
+from ${hiveconf:MY_SCHEMA}.iit_satelite
+LATERAL VIEW explode(diagnostico) myTable1 AS myCol1) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta
+JOIN ${hiveconf:MY_SCHEMA}.iit_provenance as f on a.sid_md=f.sid_md and a.version_receta=f.version_receta) s
 where s.version_receta = 1;
-
