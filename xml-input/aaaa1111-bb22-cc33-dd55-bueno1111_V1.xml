@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Receta Electr??nica Portable</title>
+    <id>http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111</id>
+    <link href="http://imss.gob.mx/hie/hl7/fhir/resource/" rel="fhir-base"/>
+    <updated>2020-01-01T13:48:48.560</updated>
+    <entry>
+        <title>Composition</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111</id>
+        <updated>2020-01-01T13:48:48.560</updated>
+        <content type="text/xml">
+            <Composition xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                    <period/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <date value="2020-01-01T13:48:48.387"/>
+                <type>
+                    <coding>
+                        <system value="http://www.imss.gob.mx"/>
+                        <code value="15"/>
+                        <display value="Diabetes Mellitus"/>
+                        <primary value="false"/>
+                        <valueSet/>
+                    </coding>
+                    <text value="Diabetes Mellitus"/>
+                </type>
+                <class/>
+                <title value="Receta Electr??nica Portable"/>
+                <status value="final"/>
+                <confidentiality>
+                    <system value="http://hl7.org/fhir/v3/vs/Confidentiality"/>
+                    <code value="R"/>
+                    <display value="restricted"/>
+                    <primary value="false"/>
+                    <valueSet/>
+                </confidentiality>
+                <subject>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </subject>
+                <author>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </author>
+                <attester>
+                    <mode value="official"/>
+                    <time value="2020-01-01T13:48:48.387"/>
+                    <party>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </party>
+                </attester>
+                <custodian>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </custodian>
+                <event>
+                    <code>
+                        <coding>
+                            <system value="http://hl7.org/fhir/v3/vs/ActCode"/>
+                            <code value="MED"/>
+                            <display value="Medical"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Evento m??dico"/>
+                    </code>
+                    <period/>
+                    <detail/>
+                </event>
+                <section>
+                    <title value="Datos adicionales"/>
+                    <section>
+                        <title value="Folio"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-folio">
+                                <valueString value="38011616477041"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Fecha de expedici??n"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-fechaExpedicion">
+                                <valueString value="2020-01-01T13:48:48.387"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Estatus"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-estatus">
+                                <valueString value="Generada"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Tratamiento"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-tratamiento">
+                                <valueString value="38011616477041"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Tipo"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-tipo">
+                                <valueCodeableConcept>
+                                    <coding>
+                                        <system value="http://imss.gob.mx"/>
+                                        <code value="0"/>
+                                        <display value="Individual"/>
+                                        <primary value="false"/>
+                                    </coding>
+                                </valueCodeableConcept>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Fecha Inicio de Vigencia"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-fechaInicioVigencia">
+                                <valueString value="19/08/2016"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Fecha Fin de Vigencia"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-fechaFinVigencia">
+                                <valueString value="26/08/2016"/>
+                            </extension>
+                        </content>
+                    </section>
+                    <section>
+                        <title value="Origen"/>
+                        <subject>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                            <display value="Receta"/>
+                        </subject>
+                        <content>
+                            <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-origen">
+                                <valueCodeableConcept>
+                                    <coding>
+                                        <system value="http://imss.gob.mx"/>
+                                        <code value="0"/>
+                                        <display value="Electr??nica"/>
+                                        <primary value="false"/>
+                                    </coding>
+                                </valueCodeableConcept>
+                            </extension>
+                        </content>
+                    </section>
+                </section>
+                <section>
+                    <title value="Prescripci??n de medicamentos"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="57833-6"/>
+                            <display value="Prescription for medication"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Prescripci??n de medicamentos"/>
+                    </code>
+                    <subject/>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/ac08a4b6-8b3c-4eec-8055-fa66a0842bbb"/>
+                            <display value="Prescripci??n de medicamentos"/>
+                        </content>
+                    </section>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/8e13eed7-2505-4d28-9eb4-0452e41652d7"/>
+                            <display value="Prescripci??n de medicamentos"/>
+                        </content>
+                    </section>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/ee45887e-1f73-4c1b-a9ec-a74231a0191b"/>
+                            <display value="Prescripci??n de medicamentos"/>
+                        </content>
+                    </section>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/312d3d6b-ddb0-4a18-8366-a12f32d8464a"/>
+                            <display value="Prescripci??n de medicamentos"/>
+                        </content>
+                    </section>
+                </section>
+                <section>
+                    <title value="Diagn??sticos"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="29308-4"/>
+                            <display value="Diagnosis"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Diagn??sticos"/>
+                    </code>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/3801162521106089095"/>
+                            <display value="Diagn??stico"/>
+                        </content>
+                    </section>
+                    <section>
+                        <subject/>
+                        <content>
+                            <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/3801162521106089095"/>
+                            <display value="Diagn??stico"/>
+                        </content>
+                    </section>
+                </section>
+            </Composition>
+        </content>
+    </entry>
+    <entry>
+        <title>Patient</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/SAVG610104CFILHFA1</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Patient xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#paciente-consultorio">
+                    <valueString value="20"/>
+                </extension>
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#paciente-turno">
+                    <valueString value="Matutino"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="CX_CURP"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="SAVG610104CFILHFA1"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="CURP"/>
+                    <system value="http://renapo.gob.mx"/>
+                    <value value="SAVG610104MDFNLN07"/>
+                    <assigner>
+                        <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/494c5d33-3e2a-4d23-8ed8-ef44d7412f55"/>
+                        <display value="RENAPO"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="NSS"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="0314-61-1958"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="AGREGADO_MEDICO"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="1F1961OR"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="AGREGADO_AFILIACION"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="01219617"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="ID_PERSONA"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name>
+                    <use value="official"/>
+                    <text value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                    <family value="SAINZ VILLANUEVA"/>
+                    <given value="GENOVEVA MARGARITA"/>
+                </name>
+                <gender>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+                        <code value="F"/>
+                        <display value="Female"/>
+                        <primary value="false"/>
+                    </coding>
+                    <text value="Femenino"/>
+                </gender>
+                <birthDate value="1961-01-04T00:00:00"/>
+                <careProvider>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </careProvider>
+                <managingOrganization>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </managingOrganization>
+                <active value="true"/>
+            </Patient>
+        </content>
+    </entry>
+    <entry>
+        <title>Practitioner</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/99182597</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Practitioner xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="MATRICULA"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="99182597"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <identifier>
+                    <use value="secondary"/>
+                    <label value="CEDULA"/>
+                    <system value="http://imss.gob.mx"/>
+                    <value value="5239141"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name>
+                    <use value="official"/>
+                    <text value="ELIZABETH RIVERO GARCIA"/>
+                    <family value="RIVERO GARCIA"/>
+                    <given value="ELIZABETH"/>
+                </name>
+                <organization>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </organization>
+            </Practitioner>
+        </content>
+    </entry>
+    <entry>
+        <title>Organization</title>
+        <id>http://www.oid-info.com/get/2.16.840.1.113883.3.14</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Organization xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="OID"/>
+                    <system value="http://www.oid-info.com/get"/>
+                    <value value="urn:oid:2.16.840.1.113883.3.14"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name value="Instituto Mexicano del Seguro Social"/>
+                <type>
+                    <coding>
+                        <system value="http://hl7.org/fhir/vs/organization-type"/>
+                        <code value="prov"/>
+                        <display value="Healthcare Provider"/>
+                        <primary value="false"/>
+                        <valueSet/>
+                    </coding>
+                    <text value="Instituci??n de Salud"/>
+                </type>
+                <active value="true"/>
+            </Organization>
+        </content>
+    </entry>
+    <entry>
+        <title>Organization</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/494c5d33-3e2a-4d23-8ed8-ef44d7412f55</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Organization xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:494c5d33-3e2a-4d23-8ed8-ef44d7412f55"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name value="Registro Nacional de Poblaci??n"/>
+                <type>
+                    <coding>
+                        <system value="http://hl7.org/fhir/vs/organization-type"/>
+                        <code value="fed"/>
+                        <display value="Federal Government"/>
+                        <primary value="false"/>
+                        <valueSet/>
+                    </coding>
+                    <text value="Instituci??n gubernamental"/>
+                </type>
+                <active value="true"/>
+            </Organization>
+        </content>
+    </entry>
+    <entry>
+        <title>Location</title>
+        <id>http://www.imss.gob.mx/380116252110</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Location xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#unidadmedica-clave-presupuestal">
+                    <valueString value="382401200200"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="CVE_PRESUPUESTAL"/>
+                    <system value="http://www.imss.gob.mx/"/>
+                    <value value="380116252110"/>
+                    <period/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name value="UMF NO. 7"/>
+                <managingOrganization>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </managingOrganization>
+                <status value="active"/>
+                <partOf>
+                    <reference value="http://www.imss.gob.mx/38"/>
+                    <display value="4 SURESTE D.F."/>
+                </partOf>
+                <mode value="instance"/>
+            </Location>
+        </content>
+    </entry>
+    <entry>
+        <title>Location</title>
+        <id>http://www.imss.gob.mx/38</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Location xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#delegacion-clave">
+                    <valueString value="38"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="CVE_ZONA"/>
+                    <system value="http://www.imss.gob.mx/"/>
+                    <value value="38"/>
+                    <period/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <name value="4 SURESTE D.F."/>
+                <managingOrganization>
+                    <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                    <display value="Instituto Mexicano del Seguro Social"/>
+                </managingOrganization>
+                <status value="active"/>
+                <mode value="instance"/>
+            </Location>
+        </content>
+    </entry>
+    <entry>
+        <title>MedicationPrescription</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/ac08a4b6-8b3c-4eec-8055-fa66a0842bbb</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-estatus">
+                    <valueString value="Disponible"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:ac08a4b6-8b3c-4eec-8055-fa66a0842bbb"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <dateWritten value="2020-01-01T13:48:48.387"/>
+                <status value="active"/>
+                <patient>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </patient>
+                <prescriber>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </prescriber>
+                <medication>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2301.00.00"/>
+                    <display value="Hidroclorotiazida tableta cada tableta contiene: hidroclorotiazida 25 mg envase   con 20 tabletas. TABLETA 25 MG"/>
+                </medication>
+                <dosageInstruction>
+                    <text value="0.5 Tableta (s) cada 24 Hora(s) durante 30 D??a(s)"/>
+                    <additionalInstructions/>
+                    <timingSchedule>
+                        <repeat>
+                            <frequency value="24"/>
+                            <duration value="30"/>
+                            <units value="d"/>
+                            <count value="30"/>
+                        </repeat>
+                    </timingSchedule>
+                    <route>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="26643006"/>
+                            <display value="Oral route (qualifier value)"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Oral"/>
+                    </route>
+                    <doseQuantity>
+                        <value value="0.5"/>
+                        <units value="??Tablet dose form (qualifier value)"/>
+                        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                        <code value="385055001"/>
+                    </doseQuantity>
+                </dosageInstruction>
+                <dispense>
+                    <medication>
+                        <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2301.00.00"/>
+                        <display value="Hidroclorotiazida tableta cada tableta contiene: hidroclorotiazida 25 mg envase   con 20 tabletas. TABLETA 25 MG"/>
+                    </medication>
+                    <quantity>
+                        <value value="1"/>
+                        <units value="Container (physical object)"/>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="706437002"/>
+                    </quantity>
+                </dispense>
+            </MedicationPrescription>
+        </content>
+    </entry>
+    <entry>
+        <title>MedicationPrescription</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/8e13eed7-2505-4d28-9eb4-0452e41652d7</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-estatus">
+                    <valueString value="Disponible"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:8e13eed7-2505-4d28-9eb4-0452e41652d7"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <dateWritten value="2020-01-01T13:48:48.387"/>
+                <status value="active"/>
+                <patient>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </patient>
+                <prescriber>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </prescriber>
+                <medication>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.1042.00.00"/>
+                    <display value="Glibenclamida tableta cada tableta contiene: glibenclamida 5 mg envase con 50  tabletas. TABLETA 5 MG"/>
+                </medication>
+                <dosageInstruction>
+                    <text value="1.0 Tableta (s) cada 12 Hora(s) durante 30 D??a(s)"/>
+                    <additionalInstructions/>
+                    <timingSchedule>
+                        <repeat>
+                            <frequency value="12"/>
+                            <duration value="30"/>
+                            <units value="d"/>
+                            <count value="60"/>
+                        </repeat>
+                    </timingSchedule>
+                    <route>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="26643006"/>
+                            <display value="Oral route (qualifier value)"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Oral"/>
+                    </route>
+                    <doseQuantity>
+                        <value value="1.0"/>
+                        <units value="??Tablet dose form (qualifier value)"/>
+                        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                        <code value="385055001"/>
+                    </doseQuantity>
+                </dosageInstruction>
+                <dispense>
+                    <medication>
+                        <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.1042.00.00"/>
+                        <display value="Glibenclamida tableta cada tableta contiene: glibenclamida 5 mg envase con 50  tabletas. TABLETA 5 MG"/>
+                    </medication>
+                    <quantity>
+                        <value value="2"/>
+                        <units value="Container (physical object)"/>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="706437002"/>
+                    </quantity>
+                </dispense>
+            </MedicationPrescription>
+        </content>
+    </entry>
+    <entry>
+        <title>MedicationPrescription</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/ee45887e-1f73-4c1b-a9ec-a74231a0191b</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-estatus">
+                    <valueString value="Disponible"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:ee45887e-1f73-4c1b-a9ec-a74231a0191b"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <dateWritten value="2020-01-01T13:48:48.387"/>
+                <status value="active"/>
+                <patient>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </patient>
+                <prescriber>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </prescriber>
+                <medication>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2501.00.00"/>
+                    <display value="Enalapril o lisinopril o ramipril capsula o tableta cada capsula o tableta   contiene: maleato de enalapril 10 mg o lisinopril 10 mg o ramipril 10 mg   envase con 30 capsulas o tabletas. TABLETA 300  MG"/>
+                </medication>
+                <dosageInstruction>
+                    <text value="1.0 Tableta (s) cada 12 Hora(s) durante 30 D??a(s)"/>
+                    <additionalInstructions/>
+                    <timingSchedule>
+                        <repeat>
+                            <frequency value="12"/>
+                            <duration value="30"/>
+                            <units value="d"/>
+                            <count value="60"/>
+                        </repeat>
+                    </timingSchedule>
+                    <route>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="26643006"/>
+                            <display value="Oral route (qualifier value)"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Oral"/>
+                    </route>
+                    <doseQuantity>
+                        <value value="1.0"/>
+                        <units value="??Tablet dose form (qualifier value)"/>
+                        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                        <code value="385055001"/>
+                    </doseQuantity>
+                </dosageInstruction>
+                <dispense>
+                    <medication>
+                        <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2501.00.00"/>
+                        <display value="Enalapril o lisinopril o ramipril capsula o tableta cada capsula o tableta   contiene: maleato de enalapril 10 mg o lisinopril 10 mg o ramipril 10 mg   envase con 30 capsulas o tabletas. TABLETA 300  MG"/>
+                    </medication>
+                    <quantity>
+                        <value value="2"/>
+                        <units value="Container (physical object)"/>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="706437002"/>
+                    </quantity>
+                </dispense>
+            </MedicationPrescription>
+        </content>
+    </entry>
+    <entry>
+        <title>MedicationPrescription</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/312d3d6b-ddb0-4a18-8366-a12f32d8464a</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-estatus">
+                    <valueString value="Disponible"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="UUID"/>
+                    <system value="http://imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="urn:uuid:312d3d6b-ddb0-4a18-8366-a12f32d8464a"/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <dateWritten value="2020-01-01T13:48:48.387"/>
+                <status value="active"/>
+                <patient>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </patient>
+                <prescriber>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </prescriber>
+                <medication>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2714.00.00"/>
+                    <display value="COMPLEJO B CADA TABLETA, COMPRIMIDO O CAPSULA CONTIENE: MONONITRATO O CLORHIDRATO DE TIAMINA 100 MG CLORHIDRATO DE PIRIDOXINA 5 MG CIANOCOBALAMINA 50 MICROGRAMOS ENVASE CON 30 TABLETAS, COMPRIMIDOS O CAPSULAS. TABLETA MONONITRATO O CLORHIDRATO DE   TIAMPINA 100 MG. CLORHIDRATO DE PIRIDOXINA 5 MG. CIANOCOBALAMINA 50   MICROGRAMOS."/>
+                </medication>
+                <dosageInstruction>
+                    <text value="1.0 Tableta (s) cada 24 Hora(s) durante 30 D??a(s)"/>
+                    <additionalInstructions/>
+                    <timingSchedule>
+                        <repeat>
+                            <frequency value="24"/>
+                            <duration value="30"/>
+                            <units value="d"/>
+                            <count value="30"/>
+                        </repeat>
+                    </timingSchedule>
+                    <route>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="26643006"/>
+                            <display value="Oral route (qualifier value)"/>
+                            <primary value="false"/>
+                            <valueSet/>
+                        </coding>
+                        <text value="Oral"/>
+                    </route>
+                    <doseQuantity>
+                        <value value="1.0"/>
+                        <units value="??Tablet dose form (qualifier value)"/>
+                        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                        <code value="385055001"/>
+                    </doseQuantity>
+                </dosageInstruction>
+                <dispense>
+                    <medication>
+                        <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2714.00.00"/>
+                        <display value="COMPLEJO B CADA TABLETA, COMPRIMIDO O CAPSULA CONTIENE: MONONITRATO O CLORHIDRATO DE TIAMINA 100 MG CLORHIDRATO DE PIRIDOXINA 5 MG CIANOCOBALAMINA 50 MICROGRAMOS ENVASE CON 30 TABLETAS, COMPRIMIDOS O CAPSULAS. TABLETA MONONITRATO O CLORHIDRATO DE   TIAMPINA 100 MG. CLORHIDRATO DE PIRIDOXINA 5 MG. CIANOCOBALAMINA 50   MICROGRAMOS."/>
+                    </medication>
+                    <quantity>
+                        <value value="1"/>
+                        <units value="Container (physical object)"/>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="706437002"/>
+                    </quantity>
+                </dispense>
+            </MedicationPrescription>
+        </content>
+    </entry>
+    <entry>
+        <title>Medication</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2301.00.00</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Medication xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-clave">
+                    <valueString value="010.000.2301.00.00"/>
+                </extension>
+                <name value="Hidroclorotiazida tableta cada tableta contiene: hidroclorotiazida 25 mg envase   con 20 tabletas. TABLETA 25 MG"/>
+            </Medication>
+        </content>
+    </entry>
+    <entry>
+        <title>Medication</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/010.000.1042.00.00</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Medication xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-clave">
+                    <valueString value="010.000.1042.00.00"/>
+                </extension>
+                <name value="Glibenclamida tableta cada tableta contiene: glibenclamida 5 mg envase con 50  tabletas. TABLETA 5 MG"/>
+            </Medication>
+        </content>
+    </entry>
+    <entry>
+        <title>Medication</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2501.00.00</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Medication xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-clave">
+                    <valueString value="010.000.2501.00.00"/>
+                </extension>
+                <name value="Enalapril o lisinopril o ramipril capsula o tableta cada capsula o tableta   contiene: maleato de enalapril 10 mg o lisinopril 10 mg o ramipril 10 mg   envase con 30 capsulas o tabletas. TABLETA 300  MG"/>
+            </Medication>
+        </content>
+    </entry>
+    <entry>
+        <title>Medication</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/010.000.2714.00.00</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Medication xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-clave">
+                    <valueString value="010.000.2714.00.00"/>
+                </extension>
+                <name value="COMPLEJO B CADA TABLETA, COMPRIMIDO O CAPSULA CONTIENE: MONONITRATO O CLORHIDRATO DE TIAMINA 100 MG CLORHIDRATO DE PIRIDOXINA 5 MG CIANOCOBALAMINA 50 MICROGRAMOS ENVASE CON 30 TABLETAS, COMPRIMIDOS O CAPSULAS. TABLETA MONONITRATO O CLORHIDRATO DE   TIAMPINA 100 MG. CLORHIDRATO DE PIRIDOXINA 5 MG. CIANOCOBALAMINA 50   MICROGRAMOS."/>
+            </Medication>
+        </content>
+    </entry>
+    <entry>
+        <title>Condition</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/3801162521106089095</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Condition xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-id">
+                    <valueString value="1"/>
+                </extension>
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-id-nota">
+                    <valueString value="15"/>
+                </extension>
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-nota">
+                    <valueString value="Diabetes Mellitus"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="CVE_ATENCION"/>
+                    <system value="http://www.imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="3801162521106089095"/>
+                    <period/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <subject>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </subject>
+                <asserter>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </asserter>
+                <code>
+                    <coding>
+                        <system value="http://cie10.org/"/>
+                        <code value="I10"/>
+                        <display value="Hipertension esencial (primaria)"/>
+                        <primary value="true"/>
+                    </coding>
+                    <text value="Hipertension esencial (primaria)"/>
+                </code>
+                <category>
+                    <coding>
+                        <system value="http://hl7.org/fhir/condition-category"/>
+                        <code value="diagnosis"/>
+                        <display value="Diagnosis"/>
+                        <primary value="true"/>
+                    </coding>
+                </category>
+                <status value="working"/>
+                <severity/>
+                <onsetDate value="2020-01-01"/>
+                <location/>
+            </Condition>
+        </content>
+    </entry>
+    <entry>
+        <title>Condition</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/3801162521106089095</id>
+        <updated>2020-01-01T13:48:48.387</updated>
+        <content type="text/xml">
+            <Condition xmlns="http://hl7.org/fhir">
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-id">
+                    <valueString value="2"/>
+                </extension>
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-id-nota">
+                    <valueString value="15"/>
+                </extension>
+                <extension url="http://imss.gob.mx/hie/hl7/fhir/extensions#diagnostico-nota">
+                    <valueString value="Diabetes Mellitus"/>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"/>
+                </text>
+                <identifier>
+                    <use value="official"/>
+                    <label value="CVE_ATENCION"/>
+                    <system value="http://www.imss.gob.mx/hie/hl7/fhir"/>
+                    <value value="3801162521106089095"/>
+                    <period/>
+                    <assigner>
+                        <reference value="http://www.oid-info.com/get/2.16.840.1.113883.3.14"/>
+                        <display value="Instituto Mexicano del Seguro Social"/>
+                    </assigner>
+                </identifier>
+                <subject>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/SAVG610104CFILHFA1"/>
+                    <display value="GENOVEVA MARGARITA SAINZ VILLANUEVA"/>
+                </subject>
+                <asserter>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/99182597"/>
+                    <display value="ELIZABETH RIVERO GARCIA"/>
+                </asserter>
+                <code>
+                    <coding>
+                        <system value="http://cie10.org/"/>
+                        <code value="E119"/>
+                        <display value="Diabetes mellitus no insulinodependiente sin mencion de complicacion"/>
+                        <primary value="false"/>
+                    </coding>
+                    <text value="Diabetes mellitus no insulinodependiente sin mencion de complicacion"/>
+                </code>
+                <category>
+                    <coding>
+                        <system value="http://hl7.org/fhir/condition-category"/>
+                        <code value="diagnosis"/>
+                        <display value="Diagnosis"/>
+                        <primary value="false"/>
+                    </coding>
+                </category>
+                <status value="working"/>
+                <severity/>
+                <onsetDate value="2020-01-01"/>
+                <location/>
+            </Condition>
+        </content>
+    </entry>
+    <entry>
+        <title>Provenance</title>
+        <id>http://imss.gob.mx/hie/hl7/fhir/resource/a02ad35e-08df-409c-88f2-f7d814ef2c55</id>
+        <updated>2020-01-01T13:48:49.236-05:00</updated>
+        <content type="text/xml">
+            <Provenance xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+                <extension url="http://dedge.global/common/extensions#uuid">
+                    <valueString value="a02ad35e-08df-409c-88f2-f7d814ef2c55"/>
+                </extension>
+                <extension url="http://dedge.global/crypto/extensions#numeroCertificado">
+                    <valueString value="00000000000000000008"/>
+                </extension>
+                <target>
+                    <reference value="http://imss.gob.mx/hie/hl7/fhir/resource/aaaa1111-bb22-cc33-dd55-bueno1111"/>
+                    <display value="Receta electr??nica portable"/>
+                </target>
+                <recorded value="2020-01-01T13:48:49.237-05:00"/>
+                <reason>
+                    <text value="GENERACION"/>
+                </reason>
+                <integritySignature value="Y+lQB+r6Ywuu3tjdaTUGuFIREAg8gAsO4KqiFoSHjf8qUnovdt5DwGTcGpU0DZVwMG1AouS/tq5y0qmwZ5UVpaAIPsqKjsOihCF8vQhRcpHpKwoghl7yq7wju6zAzzsFgEl2Bff9BtArymMsLfCy6jbyKQIIG82sNwqW6JnAh0nCvd1jXnyrmBgEl06D8pC2RcH/vs539XIQ2bZ57DR88J3h1Q5ukRSb7g20rvUm0kL9PzgS3C3aZvPdumCn1biCMsjnwxxAsvZLGQN5B7HBVhCjvhlxnAl4umXrohMIaHKjSVqpvPc8l9DVkUcWPtZ/WhMM46H+8aZey0tBABkxlw=="/>
+            </Provenance>
+        </content>
+    </entry>
+</feed>
