@@ -69,10 +69,11 @@ TBLPROPERTIES (
 "xmlinput.end"="</feed>"
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medicationprescription(nombre_receta string, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>)
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_medicationprescription(nombre_receta string, id_medicamento Array<string>, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>)
 ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
 WITH SERDEPROPERTIES (
 "column.xpath.nombre_receta"="//Composition/identifier[label[@value='UUID']]/value/@value",
+"column.xpath.id_medicamento"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-clave']/valueString/@value",
 "column.xpath.status_medicamento"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#receta-medicamento-estatus']/valueString/@value",
 "column.xpath.uuid_med_presc"="//MedicationPrescription/identifier[label[value='UUID']]/value/@value",
 "column.xpath.fecha_prescripcion"="//MedicationPrescription/dateWritten/@value",
@@ -239,7 +240,7 @@ COMMENT 'Tabla Condition'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
 
-CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medicationprescription(sid_md string, version_receta string, nombre_receta string, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, fec_ini string)
+CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_medicationprescription(sid_md string, version_receta string, nombre_receta string, id_medicamento Array<string>, status_medicamento Array<string>, uuid_med_presc string, fecha_prescripcion Array<string>, status_med_presc Array<string>, paciente Array<string>, prescriber Array<string>, medicamento Array<string>, dosis_instruccion Array<string>, dosis_repeticion_frecuencia string, dosis_repeticion_duracion string, dosis_repeticion_unidad string, dosis_repeticion_diastratamiento string, administracion_descripcion Array<string>, administracion Array<string>, administracion_codigo Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, descripcion_medicamento Array<string>, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, fec_ini string)
 COMMENT 'Tabla Medication Prescription'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
@@ -301,20 +302,23 @@ JOIN (
 select
 sid_md,
 version_receta,
+nombre_receta,
 array_index( t.id_medicamento, n ) as  id_medicamento,
 array_index( t.nombre_medicamento, n ) as  nombre_medicamento
-from ( select sid_md, version_receta, id_medicamento, nombre_medicamento from ${hiveconf:MY_SCHEMA}.iit_medication ) t
+from ( select sid_md, version_receta, nombre_receta, id_medicamento, nombre_medicamento from ${hiveconf:MY_SCHEMA}.iit_medication ) t
 lateral view numeric_range( size( nombre_medicamento )) n1 as n) as b on a.sid_md=b.sid_md and a.version_receta=b.version_receta
 JOIN (
 select
 sid_md,
 version_receta,
+nombre_receta,
+array_index( t.id_medicamento, n ) as  id_medicamento,
 array_index( t.status_medicamento, n ) as  status_medicamento,
 array_index( t.medicamento, n ) as  medicamento,
 array_index( t.surtimiento_cantidad, n ) as  surtimiento_cantidad,
 array_index( t.descripcion_medicamento, n ) as  descripcion_medicamento
-from ( select sid_md, version_receta, status_medicamento, medicamento, surtimiento_cantidad, descripcion_medicamento from ${hiveconf:MY_SCHEMA}.iit_medicationprescription ) t
-lateral view numeric_range( size( descripcion_medicamento )) n1 as n) as c on a.sid_md=c.sid_md and a.version_receta=c.version_receta
+from ( select sid_md, version_receta, nombre_receta, id_medicamento, status_medicamento, medicamento, surtimiento_cantidad, descripcion_medicamento from ${hiveconf:MY_SCHEMA}.iit_medicationprescription ) t
+lateral view numeric_range( size( descripcion_medicamento )) n1 as n) as c on a.sid_md=c.sid_md and a.version_receta=c.version_receta and b.id_medicamento=c.id_medicamento
 JOIN ${hiveconf:MY_SCHEMA}.iit_paciente d on a.sid_md=d.sid_md and a.version_receta=d.version_receta
 JOIN (
 select 
@@ -326,4 +330,4 @@ array_index( t.diagnostico, n ) as  diagnostico
 from ( select sid_md, version_receta, umf_desc, delegacion_desc, diagnostico from ${hiveconf:MY_SCHEMA}.iit_satelite ) t
 lateral view numeric_range( size( diagnostico )) n1 as n) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta
 JOIN ${hiveconf:MY_SCHEMA}.iit_provenance as f on a.sid_md=f.sid_md and a.version_receta=f.version_receta) s 
-where s.version_receta = 1;
+where s.version_receta=1;

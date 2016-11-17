@@ -7,6 +7,7 @@ from
 reflect('org.apache.commons.codec.digest.DigestUtils','sha256Hex',a.nombre_receta) as sid_md
 ,regexp_extract(a.INPUT__FILE__NAME, '(V|v)(.*[1-9])',2) as version_receta
 ,regexp_extract(a.nombre_receta, 'urn:uuid:(.*)', 1) as nombre_receta
+,a.id_medicamento
 ,a.status_medicamento
 ,a.uuid_med_presc
 ,a.fecha_prescripcion
@@ -38,6 +39,7 @@ insert into table ${hiveconf:MY_SCHEMA}.iit_medicationprescription
 select i.sid_md
 ,i.version_receta
 ,i.nombre_receta
+,i.id_medicamento
 ,i.status_medicamento
 ,i.uuid_med_presc
 ,i.fecha_prescripcion
