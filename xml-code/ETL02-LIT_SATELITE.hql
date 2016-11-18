@@ -44,6 +44,8 @@ reflect('org.apache.commons.codec.digest.DigestUtils','sha256Hex',a.nombre_recet
 ,a.id_umf
 ,a.umf_desc
 ,a.num_consultorio
+,a.consultorio
+,a.descripcion
 ,from_unixtime(unix_timestamp()) as fec_ini
 from 
 ${hiveconf:MY_SCHEMA}.ebt_satelite as a left outer join (select * from ${hiveconf:MY_SCHEMA}.iit_satelite) j 
@@ -91,6 +93,8 @@ select i.sid_md
 ,i.id_umf
 ,i.umf_desc
 ,i.num_consultorio
+,i.consultorio
+,i.descripcion
 ,i.fec_ini;
 
 

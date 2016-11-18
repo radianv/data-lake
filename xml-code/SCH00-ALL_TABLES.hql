@@ -178,7 +178,7 @@ TBLPROPERTIES (
 );
 
 
-CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_satelite(nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string)
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.ebt_satelite(nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string, consultorio string, descripcion string)
 ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
 WITH SERDEPROPERTIES (
 "column.xpath.nombre_receta"="//Composition/identifier[label[@value='UUID']]/value/@value",
@@ -218,7 +218,9 @@ WITH SERDEPROPERTIES (
 "column.xpath.dx_receta"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#receta-tipo']/valueCodeableConcept/coding/display/@value",
 "column.xpath.id_umf"="//Location/identifier[label[@value='CVE_PRESUPUESTAL']]/value/@value",
 "column.xpath.umf_desc"="//Location[/identifier/label[@value='CVE_PRESUPUESTAL']]/name/@value",
-"column.xpath.num_consultorio"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#paciente-consultorio']/valueString/@value"
+"column.xpath.num_consultorio"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#paciente-consultorio']/valueString/@value",
+"column.xpath.consultorio"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#paciente-consultorio']/valueString/@value",
+"column.xpath.descripcion"="//extension[@url='http://imss.gob.mx/hie/hl7/fhir/extensions#unidadmedica-clave-presupuestal']/parent::Location/name/@value"
 )
 STORED AS
 INPUTFORMAT 'com.ibm.spss.hive.serde2.xml.XmlInputFormat'
@@ -265,7 +267,7 @@ COMMENT 'Tabla Medication'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
 
-CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_satelite(sid_md string, version_receta string, nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string, fec_ini string)
+CREATE TABLE IF NOT EXISTS ${hiveconf:MY_SCHEMA}.iit_satelite(sid_md string, version_receta string, nombre_receta string, id_delegacion string, delegacion_desc string, fec_condition Array<string>, diagnostico Array<string>, id_diagnostico Array<string>, estatus_receta string, administracion Array<string>, administracion_codigo Array<string>, administracion_descripcion Array<string>, fecha_prescripcion Array<string>, dosis_cantidad Array<string>, dosis_codigo Array<string>, dosis_repeticion_duracion string, dosis_repeticion_frecuencia string, dosis_repeticion_unidad string, surtimiento_cantidad Array<string>, surtimiento_unidad Array<string>, surtimiento_unidad_codigo Array<string>, id_medicamento Array<string>, nombre_medicamento string, medico string, cedula string, matricula string, nss string, curp string, paciente string, agregado_afiliacion string, genero string, agregado_medico string, fecha_nacimiento string, tipo_generacion string, id_tipo_generacion string, id_tipo_receta string, dx_receta string, id_umf string, umf_desc string, num_consultorio string, consultorio string, descripcion string, fec_ini string)
 COMMENT 'Tabla Satelite'
 TBLPROPERTIES ('creator'='ADVP', 'created_at'='2016-11-01');
 
@@ -295,7 +297,10 @@ SELECT s.* FROM
 ,e.delegacion_desc
 ,e.diagnostico
 ,e.umf_desc
+,e.consultorio
+,e.descripcion
 ,f.fec_atencion
+,g.pre_unit
 from
 ${hiveconf:MY_SCHEMA}.iit_composition a
 JOIN (
@@ -326,8 +331,11 @@ sid_md,
 version_receta,
 umf_desc,
 delegacion_desc,
-array_index( t.diagnostico, n ) as  diagnostico
-from ( select sid_md, version_receta, umf_desc, delegacion_desc, diagnostico from ${hiveconf:MY_SCHEMA}.iit_satelite ) t
+array_index( t.diagnostico, n ) as  diagnostico,
+consultorio,
+descripcion
+from ( select sid_md, version_receta, umf_desc, delegacion_desc, diagnostico, consultorio, descripcion from ${hiveconf:MY_SCHEMA}.iit_satelite ) t
 lateral view numeric_range( size( diagnostico )) n1 as n) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta
-JOIN ${hiveconf:MY_SCHEMA}.iit_provenance as f on a.sid_md=f.sid_md and a.version_receta=f.version_receta) s 
+JOIN ${hiveconf:MY_SCHEMA}.iit_provenance as f on a.sid_md=f.sid_md and a.version_receta=f.version_receta
+LEFT JOIN ${hiveconf:MY_SCHEMA}.cat_articulos_precio as g on b.id_medicamento=g.id_medicamento) s 
 where s.version_receta=1;
