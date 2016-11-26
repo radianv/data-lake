@@ -337,5 +337,7 @@ descripcion
 from ( select sid_md, version_receta, umf_desc, delegacion_desc, diagnostico, consultorio, descripcion from ${hiveconf:MY_SCHEMA}.iit_satelite ) t
 lateral view numeric_range( size( diagnostico )) n1 as n) as e on a.sid_md=e.sid_md and a.version_receta=e.version_receta
 JOIN ${hiveconf:MY_SCHEMA}.iit_provenance as f on a.sid_md=f.sid_md and a.version_receta=f.version_receta
-LEFT JOIN ${hiveconf:MY_SCHEMA}.cat_articulos_precio as g on b.id_medicamento=g.id_medicamento) s 
-where s.version_receta=1;
+LEFT JOIN ${hiveconf:MY_SCHEMA}.cat_articulos_precio as g on b.id_medicamento=g.id_medicamento) s
+JOIN
+(select sid_md, max(version_receta) as max_version from ${hiveconf:MY_SCHEMA}.iit_composition group by sid_md) t1
+ON s.sid_md = t1.sid_md and s.version_receta = t1.max_version;
