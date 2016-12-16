@@ -22,6 +22,7 @@ Los pasos que debemos ejecutar son:
 	```
 
 - ejecutar el codigo pyspark [SPARK code](https://github.com/radianv/data-lake/blob/master/spark-code/spark_SIT_CONSULTA_EXTERNA.py).
+	***NOTA: Este archivo se debe poner el el path /usr/local/spark/code***
 
 - validar desde HIVE que la información cargo en HIVE.
 	```
