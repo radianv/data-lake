@@ -29,3 +29,5 @@ if __name__ == "__main__":
   ,explode(df["sdEncabezado.sdespecialidad"]).alias("sdespecialidad"))\
   .select("id","className","fecCaptura","refApellidoPaterno","sdespecialidad.cveEspecialidad")
   raw_data.write.mode("append").save('/apps/hive/warehouse/mytable_parquet', format='parquet')
+  
+  sc.stop()
