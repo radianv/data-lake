@@ -1,3 +1,13 @@
+#Para ejecutar el ejemplo:
+#./bin/spark-submit --master "local[4]" \
+#	--jars /usr/local/spark/lib/mongo-hadoop-spark-2.0.1.jar \
+#       --driver-class-path /usr/local/spark/lib/mongo-hadoop-spark-2.0.1.jar \
+#       --conf "spark.mongodb.input.uri=mongodb://bestday_bdincom-mongo_1:27017/test.SIT_CONSULTA_EXTERNA?readPreference=primaryPreferred" \
+#       --conf "spark.mongodb.output.uri=mongodb://bestday_bdincom-mongo_1:27017/test.SIT_CONSULTA_EXTERNA" \
+#       --packages org.mongodb.spark:mongo-spark-connector_2.10:1.0.0 \
+#	code/spark_SIT_CONSULTA_EXTERNA.py
+
+
 from pyspark import SparkContext, SparkConf, HiveContext
 from pyspark.sql.functions import explode
 
