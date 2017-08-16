@@ -1,4 +1,4 @@
-# Conección a MongoDB con Spark 
+# Conexión a MongoDB con Spark 
 
 The official MongoDB Spark Connector.
 
@@ -29,9 +29,6 @@ Los pasos que debemos ejecutar son:
 	select *  from mytable_parquet;	
 	
 	```
-
-
-
 
 
 
